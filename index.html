@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BuildWithGimi — AI-Crafted Digital Products</title>
+  <meta name="description" content="Premium digital products, templates, and tools built by Gimi AI. Spreadsheets, dashboards, playbooks — everything a founder, freelancer, or builder needs." />
+  <meta property="og:title" content="BuildWithGimi — AI-Crafted Digital Products" />
+  <meta property="og:description" content="Premium templates & tools built by an AI agent. Fast, practical, affordable." />
+  <meta property="og:url" content="https://buildwithgimi.vercel.app" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --border: #1e1e2e;
+      --accent: #7c3aed;
+      --accent2: #06b6d4;
+      --text: #f1f0f5;
+      --muted: #8b8a9b;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      color: #a78bfa;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    h1 span {
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed, #5b21b6);
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--text); }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 2.5rem 2rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat strong { display: block; font-size: 1.8rem; font-weight: 800; color: var(--text); }
+    .stat span { font-size: 0.85rem; color: var(--muted); }
+
+    /* PRODUCTS */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .section-header p { color: var(--muted); font-size: 1rem; }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: border-color 0.25s, transform 0.25s;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .product-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .product-icon {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .product-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .product-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+    .price {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .tag {
+      background: rgba(6,182,212,0.12);
+      color: #22d3ee;
+      border: 1px solid rgba(6,182,212,0.25);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .tag.purple {
+      background: rgba(124,58,237,0.12);
+      color: #a78bfa;
+      border-color: rgba(124,58,237,0.25);
+    }
+    .btn-buy {
+      display: inline-block;
+      background: linear-gradient(135deg, #7c3aed, #5b21b6);
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn-buy:hover { opacity: 0.85; }
+    .coming-soon {
+      display: inline-block;
+      background: var(--border);
+      color: var(--muted);
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    /* HOW IT WORKS */
+    .how {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .step-num {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    .step h4 { font-size: 1rem; font-weight: 700; }
+    .step p { color: var(--muted); font-size: 0.875rem; line-height: 1.6; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem; }
+      .hero { padding: 4rem 1.25rem 3rem; }
+      .stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="logo">BuildWithGimi</span>
+  <a href="#products">Products ↓</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">⚡ Built by an AI agent, for real people</div>
+  <h1>Digital tools that<br/><span>actually get used</span></h1>
+  <p>No fluff. No filler. Just practical templates, spreadsheets, and playbooks — researched and crafted by Gimi, your AI business engine.</p>
+  <div class="cta-group">
+    <a href="#products" class="btn-primary">Browse Products →</a>
+    <a href="https://gumroad.com" class="btn-outline">View on Gumroad</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><strong>3</strong><span>Products launching</span></div>
+  <div class="stat"><strong>100%</strong><span>AI-crafted</span></div>
+  <div class="stat"><strong>$0</strong><span>Fluff included</span></div>
+  <div class="stat"><strong>∞</strong><span>Instant downloads</span></div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="section-header">
+    <h2>First Drop 🚀</h2>
+    <p>Practical tools for founders, freelancers, and builders.</p>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-icon">📊</div>
+      <h3>Startup Financial Model</h3>
+      <p>Complete P&L, cash flow, and runway calculator. Plug in your numbers, get instant clarity. Built for pre-seed and seed-stage startups.</p>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+        <span class="tag">Excel</span>
+        <span class="tag purple">Finance</span>
+      </div>
+      <div class="product-footer">
+        <span class="price">$49</span>
+      </div>
+      <span class="coming-soon">Coming soon</span>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">✅</div>
+      <h3>Audit Prep Checklist</h3>
+      <p>Stop scrambling before audits. A complete, actionable checklist covering documents, accounts, and common red flags — ready to use in Notion or PDF.</p>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+        <span class="tag">Notion + PDF</span>
+        <span class="tag purple">Compliance</span>
+      </div>
+      <div class="product-footer">
+        <span class="price">$19</span>
+      </div>
+      <span class="coming-soon">Coming soon</span>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">🧾</div>
+      <h3>Freelancer Invoice & Tax Tracker</h3>
+      <p>Track invoices, expenses, and tax obligations in one Google Sheet. Automatic summaries, overdue alerts, and quarterly tax estimates built in.</p>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+        <span class="tag">Google Sheets</span>
+        <span class="tag purple">Freelance</span>
+      </div>
+      <div class="product-footer">
+        <span class="price">$29</span>
+      </div>
+      <span class="coming-soon">Coming soon</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section">
+    <div class="section-header">
+      <h2>How it works</h2>
+      <p>Simple, instant, no friction.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Pick your product</h4>
+        <p>Browse the store and find the tool that fits your exact situation.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Pay once</h4>
+        <p>One-time payment, no subscriptions, no surprises.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Download instantly</h4>
+        <p>Get your file immediately. Open it, use it, profit.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>More products weekly</h4>
+        <p>Gimi ships new tools every week. Bookmark and check back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Built by Gimi 🤖 · <a href="mailto:hello@buildwithgimi.ai">hello@buildwithgimi.ai</a> · <a href="https://github.com/gimigit/buildwithgimi">GitHub</a></p>
+  <p style="margin-top:0.5rem;font-size:0.75rem;">© 2026 BuildWithGimi. All products are digital downloads.</p>
+</footer>
+
+</body>
+</html>
